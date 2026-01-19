@@ -14,22 +14,6 @@ define('GITHUB_SECRET', '');
 $payload = file_get_contents('php://input');
 $headers = getallheaders();
 
-// 1. VÉRIFICATION DE SÉCURITÉ (Signature)
-// On s'assure que la requête vient bien de GitHub et pas d'un hacker
-if (defined('GITHUB_SECRET') && !empty(GITHUB_SECRET)) {
-    // GitHub envoie la signature dans le header 'X-Hub-Signature-256'
-    $hubSignature = isset($headers['X-Hub-Signature-256']) ? $headers['X-Hub-Signature-256'] : '';
-    
-    // On recalcule la signature nous-mêmes
-    $expectedSignature = 'sha256=' . hash_hmac('sha256', $payload, GITHUB_SECRET);
-
-    // Si ça ne matche pas, on arrête tout
-    if (!hash_equals($expectedSignature, $hubSignature)) {
-        http_response_code(403);
-        die("Erreur : Signature invalide. Accès refusé.");
-    }
-}
-
 // 2. PARSING DES DONNÉES
 $data = json_decode($payload, true);
 $eventType = isset($_SERVER['HTTP_X_GITHUB_EVENT']) ? $_SERVER['HTTP_X_GITHUB_EVENT'] : 'unknown';
