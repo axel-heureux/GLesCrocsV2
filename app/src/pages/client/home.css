@@ -1,0 +1,302 @@
+/* Reset & Base Fonts */
+:root {
+  --dark-blue: #2c3e50;    /* La couleur principale des cartes */
+  --orange: #e67e22;       /* La couleur des prix/boutons */
+  --green: #27ae60;        /* La couleur de validation */
+  --off-white: #ecf0f1;    /* Fond de page */
+  --text-dark: #333;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #fdfdfd;
+  color: #333;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Top Navbar --- */
+.top-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: white;
+  border-bottom: 2px solid #eee;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-placeholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--orange);
+  color: var(--orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.brand-name {
+  font-weight: bold;
+  color: var(--dark-blue);
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.btn-admin {
+  background-color: var(--dark-blue);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.mobile-menu-icon {
+  display: none; /* Caché sur desktop */
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+  height: 250px;
+  margin: 1rem 2rem;
+  border-radius: 20px;
+  background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); /* Image générique de nourriture */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-section h1 {
+  color: white;
+  font-size: 3.5rem;
+  text-align: center;
+  font-weight: 300;
+  letter-spacing: 2px;
+  border: 2px solid rgba(255,255,255,0.8);
+  padding: 1rem 3rem;
+  backdrop-filter: blur(2px);
+}
+
+.hero-section h1 span {
+  font-weight: 700;
+}
+
+/* --- Main Grid Layout --- */
+.main-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr; /* Colonne gauche plus large */
+  gap: 1.5rem;
+  padding: 0 2rem 2rem 2rem;
+}
+
+.sidebar-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* --- Cards Style Generic --- */
+.card {
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.dark-card {
+  background-color: var(--dark-blue);
+  color: white;
+}
+
+.section-title {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+/* --- Menu List Styles --- */
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.menu-item {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-dark);
+}
+
+.menu-info h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.menu-info p {
+  margin: 0.2rem 0 0 0;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.menu-price-tag {
+  background-color: var(--orange);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  min-width: 60px;
+  text-align: center;
+}
+
+/* --- Status & Ticket Styles --- */
+.status-box {
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-box.ready {
+  background-color: var(--green);
+}
+
+.status-box.pending {
+  background-color: var(--orange);
+}
+
+.status-box h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.ticket-action-box {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--text-dark);
+}
+
+.current-ticket {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--dark-blue);
+}
+
+.white-btn {
+  background: white;
+  border: 2px solid transparent;
+  color: var(--text-dark);
+  font-weight: bold;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.1s;
+}
+
+/* Le bouton dans la zone blanche doit avoir du style pour ressortir s'il est blanc sur blanc ? 
+   Ah non, dans la maquette, le bouton est blanc mais c'est le conteneur parent qui est bleu. 
+   Dans la zone "Prendre un ticket", le fond est blanc. Le texte du bouton est noir.
+*/
+.ticket-section .ticket-action-box .white-btn {
+  background: white; /* Fond blanc */
+  color: black;
+  border: none;
+  font-weight: bold;
+  /* Pour correspondre à la maquette "Prendre un ticket" qui semble être juste du texte cliquable ou un bouton simple */
+}
+
+/* Correction pour le bouton "Prendre un ticket" :
+   Sur la maquette, c'est une zone blanche avec le texte "Prendre un ticket" centré.
+*/
+.ticket-section .ticket-action-box {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80px;
+  cursor: pointer;
+}
+
+.ticket-section .ticket-action-box:hover {
+  background-color: #f8f8f8;
+}
+
+
+/* --- RESPONSIVE (Mobile View like left image) --- */
+@media (max-width: 768px) {
+  .top-navbar .btn-admin {
+    display: none; /* Cache le bouton admin sur mobile */
+  }
+  
+  .mobile-menu-icon {
+    display: block; /* Affiche le burger menu */
+  }
+
+  .hero-section {
+    display: none; /* Cache l'image hero sur mobile pour gagner de place comme sur la gauche de la maquette */
+    /* OU garder l'image mais plus petite : height: 150px; */
+  }
+
+  .main-grid {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  /* On inverse l'ordre pour mettre "En préparation" au dessus du menu sur mobile, comme sur l'image */
+  .sidebar-column {
+    order: -1; 
+  }
+  
+  .card {
+    border-radius: 0; /* Plus carré sur mobile ? Non, gardons les bords ronds */
+    margin-bottom: 1rem;
+  }
+}
