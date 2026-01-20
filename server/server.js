@@ -45,19 +45,28 @@ app.get('/api/menu', (req, res) => {
   });
 });
 
-// 2. Prendre un ticket (POST)
+// 3. Prendre un ticket (AVEC UN PRODUIT SPÉCIFIQUE)
 app.post('/api/ticket', (req, res) => {
-  const customerNumber = Math.floor(Math.random() * 1000) + 1; 
-  // Assurez-vous d'avoir une table 'orders' aussi, sinon créez-la
-  const sql = "INSERT INTO orders (customer_number, status) VALUES (?, 'en_attente')";
+  // On récupère l'ID du produit envoyé par le React
+  const { productId } = req.body; 
+
+  const customerNumber = Math.floor(Math.random() * 1000); 
   
-  db.query(sql, [customerNumber], (err, result) => {
+  // On ajoute 'product_id' dans la requête SQL
+  const sql = "INSERT INTO orders (customer_number, total_amount, status, product_id) VALUES (?, 0, 'en_attente', ?)";
+  
+  db.query(sql, [customerNumber, productId], (err, result) => {
     if (err) return res.status(500).json(err);
     
-    // Notifier tout le monde via Socket
-    io.emit('queueUpdate', { newTicket: customerNumber });
-    
-    res.json({ ticketId: result.insertId, number: customerNumber });
+    // On notifie l'admin qu'une commande est arrivée
+    io.emit('queueUpdate', { type: 'NEW_ORDER' });
+
+    res.json({ 
+      ticketId: result.insertId, 
+      number: customerNumber,
+      status: 'waiting',
+      productId: productId // On renvoie l'info
+    });
   });
 });
 
