@@ -1,6 +1,6 @@
 /* Reset & Base Fonts */
 :root {
-  --dark-blue: #2c3e50;    /* La couleur principale des cartes */
+  --dark-blue: #2d3e50;    /* La couleur principale des cartes */
   --orange: #e67e22;       /* La couleur des prix/boutons */
   --green: #27ae60;        /* La couleur de validation */
   --off-white: #ecf0f1;    /* Fond de page */
@@ -76,6 +76,8 @@ body {
   cursor: pointer;
 }
 
+
+
 /* --- Hero Section --- */
 .hero-section {
   height: 250px;
@@ -134,8 +136,7 @@ body {
 }
 
 .dark-card {
-  background-color: var(--dark-blue);
-  color: white;
+  color: black;
 }
 
 .section-title {
