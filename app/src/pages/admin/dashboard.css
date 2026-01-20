@@ -251,6 +251,73 @@ input:checked + .slider:before { transform: translateX(24px); }
   margin: 0.5rem 0 0 0;
 }
 
+/* --- Boutons CRUD --- */
+.panel-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.btn-add {
+  background-color: var(--green);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.item-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 5px;
+  border-radius: 4px;
+}
+.btn-icon:hover { background-color: #eee; }
+.btn-icon.delete:hover { background-color: #ffebeb; }
+
+/* --- MODALE (POPUP) --- */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; margin-bottom: 0.3rem; font-weight: bold; font-size: 0.9rem; }
+.form-group input { 
+  width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; 
+}
+
+.form-row { display: flex; gap: 1rem; }
+.modal-actions { display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1.5rem; }
+
+.btn-cancel { background: #ddd; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; }
+.btn-save { background: var(--dark-blue); color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; }
+
 /* Mobile responsive */
 @media (max-width: 768px) {
   .admin-grid {
